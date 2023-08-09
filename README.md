@@ -1,12 +1,11 @@
 # Visualization of sorting algorithms 
 
-
-
 ![Logo](https://drive.google.com/uc?id=1LM0BSiAZYsSIHtTdyukWAKB6zuCyq-bm)
 
-
 ![Gif](https://drive.google.com/uc?id=1BsIcizF1ZCAYQmbDTmExCDY0DnlDaCMC)
+
 ^Quick sort
+
 ## I. Info
 
 This project visualizes how sorting algorithms work. The program includes:
