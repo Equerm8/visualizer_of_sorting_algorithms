@@ -1,0 +1,42 @@
+W E L C O M E   T O   S O R T I N G   V I S U A L I Z A T I O N
+===============================================================
+Choose algorithm to visualize.
+After "Choice" type number you pick.
+1. Bubble sort
+2. Bucket sort - with insertion sort
+3. Counting sort - hard to visualize. If you want to know how
+    how it works, you need to read my code or use another 
+    source
+4. Gnome sort
+5. Heap sort
+6. Insertion sort
+7. Merge sort
+8. Quick sort
+9. Radix sort
+10. Selection sort
+
+Choice: 2
+===============================================================
+Choose resolution.
+Type: AxB
+
+Choice: 800x600
+===============================================================
+How many elements do you want to sort?
+Number of elements must be smaller or equal than width
+of the screen.
+Minimum elements: 10
+
+Choice: 800
+===============================================================
+Choose delay time [ms] which algorithm will do single 
+operations.
+After colon type only integer value.
+
+Choice: 28
+===============================================================
+Theres two type of visualization. Lines and dots. Choose one.
+If you want lines: L
+If you want dots: D
+
+Choice: L
