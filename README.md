@@ -6,7 +6,7 @@
   <img src="https://drive.google.com/uc?id=1BsIcizF1ZCAYQmbDTmExCDY0DnlDaCMC" alt="Gif"/>
 </div>
 
-^Quick sort
+  ^Quick sort
 
 ## I. Info
 
