@@ -46,3 +46,9 @@ Download the .zip and you are ready to go. Adjust the settings to your preferenc
 #### If the program crashes during sorting, try running "Sorting Algorithms Visualizer.exe" in Windows 7 compatibility mode.
 
 Close the cmd window to exit the program.
+
+## IV. References
+https://www.youtube.com/watch?v=V7Nyq6-dzCI - inspiration
+https://www.youtube.com/playlist?list=PL9xmBV_5YoZOZSbGAXAPIq1BeUf4j20pl
+https://www.youtube.com/@SimpleSnippets - I recommend videos that implement sorting algorithms
+www.geeksforgeeks.org
