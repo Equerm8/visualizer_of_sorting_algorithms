@@ -1,12 +1,13 @@
 # Visualization of sorting algorithms 
 
+<div align="center">
+  <img src="https://drive.google.com/uc?id=1LM0BSiAZYsSIHtTdyukWAKB6zuCyq-bm" alt="Logo"/>
+  
+  <img src="https://drive.google.com/uc?id=1BsIcizF1ZCAYQmbDTmExCDY0DnlDaCMC" alt="Gif"/>
+  
+  ^Quick sort
+</div>
 
-
-![Logo](https://drive.google.com/uc?id=1LM0BSiAZYsSIHtTdyukWAKB6zuCyq-bm)
-
-
-![](https://drive.google.com/uc?id=1BsIcizF1ZCAYQmbDTmExCDY0DnlDaCMC)
-^Quick sort
 ## I. Info
 
 This project visualizes how sorting algorithms work. The program includes:
@@ -32,7 +33,7 @@ This project visualizes how sorting algorithms work. The program includes:
 🔹 selection sort.
 
 
-Initial data is stored in settings.txt. There is no explanation of how algorithms work. If you want to know theory behind it skip to references and sources.
+Settings are stored in settings.txt. There is no explanation of how the algorithms work. If you want to know theory behind it skip to references and sources.
 ## II. Why bother at all?
 Anyone can say "I'll use the std::sort() function and forget about sorting". The more curious will ask "can my program run faster"? This is a difficult question because it consists of many aspects - code language, use of loops, etc. It also includes data sorting. In this area comes Big O notation and many algorithms that run fast and slow according to Big O.
 
