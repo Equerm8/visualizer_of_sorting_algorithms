@@ -5,7 +5,7 @@
 ![Logo](https://drive.google.com/uc?id=1LM0BSiAZYsSIHtTdyukWAKB6zuCyq-bm)
 
 
-![](https://drive.google.com/uc?id=1BsIcizF1ZCAYQmbDTmExCDY0DnlDaCMC)
+![Gif](https://drive.google.com/uc?id=1BsIcizF1ZCAYQmbDTmExCDY0DnlDaCMC)
 ^Quick sort
 ## I. Info
 
