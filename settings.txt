@@ -15,7 +15,7 @@ After "Choice" type number you pick.
 9. Radix sort
 10. Selection sort
 
-Choice: 2
+Choice: 1
 ===============================================================
 Choose resolution.
 Type: AxB
@@ -33,7 +33,7 @@ Choose delay time [ms] which algorithm will do single
 operations.
 After colon type only integer value.
 
-Choice: 28
+Choice: 0
 ===============================================================
 Theres two type of visualization. Lines and dots. Choose one.
 If you want lines: L
