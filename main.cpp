@@ -204,6 +204,7 @@ bool readFromFile( unsigned int* algorithm,
             {
                 // allowX variable checks if there is a number before or behind 'x'
                 bool allowX = false;
+                bool xApperance = false;
                 for (char c : line)
                 {
                     if(c == 'x' || c == 'X')
@@ -211,6 +212,7 @@ bool readFromFile( unsigned int* algorithm,
                         if(numberString == "" || allowX == false) goto terminate;
                         *windowWidth = std::stoi(numberString);
                         numberString = "";
+                        xApperance = true;
                         continue;
                     }
                     if ((int)c >= 48 && (int)c <= 57)
@@ -220,7 +222,7 @@ bool readFromFile( unsigned int* algorithm,
                     }
                 }
                 // Check if number is correct
-                if(numberString == "" || allowX == true) goto terminate;
+                if(numberString == "" || xApperance == false) goto terminate;
                 *windowHeight = std::stoi(numberString);
                 ++whichChoice;
             }
