@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     unsigned int windowWidth;
     unsigned int windowHeight;
     unsigned int delayTime;
-    char typeOfVisualization;
+    char typeOfVisualization = ' ';
 
     if(readFromFile(
         &algorithm, &numberOfElements, &windowWidth, 
@@ -147,8 +147,8 @@ int main(int argc, char *argv[])
     {
         SDL_ShowSimpleMessageBox(
         SDL_MESSAGEBOX_ERROR, 
-        "ERROR INIT_DATA", 
-        "Unable to open init_data.txt file.", 
+        "ERROR SETTINGS.TXT", 
+        "There was a problem with the settings.txt file. Make sure that such a file exists and that all parameters are correct.", 
         NULL);
 
         return EXIT_FAILURE;
@@ -182,7 +182,7 @@ bool readFromFile( unsigned int* algorithm,
         // Reading file
         while(getline(initDataFile, line))
         {
-            // Finding word choice for setting up variables.
+            // Finding word choice for setting up variables
             //
             // Algorithm
             if (line.substr(0,6) == "Choice" && whichChoice == 0)
@@ -194,25 +194,33 @@ bool readFromFile( unsigned int* algorithm,
                         numberString.push_back(c);
                     }
                 }
+                // Check if number is correct
+                if(numberString == "") goto terminate;
                 *algorithm = std::stoi(numberString);
                 ++whichChoice;
             }
             // Resolution
             else if (line.substr(0,6) == "Choice" && whichChoice == 1)
             {
+                // allowX variable checks if there is a number before or behind 'x'
+                bool allowX = false;
                 for (char c : line)
                 {
                     if(c == 'x' || c == 'X')
                     {
+                        if(numberString == "" || allowX == false) goto terminate;
                         *windowWidth = std::stoi(numberString);
                         numberString = "";
                         continue;
                     }
                     if ((int)c >= 48 && (int)c <= 57)
                     {
+                        allowX = true;
                         numberString.push_back(c);
                     }
                 }
+                // Check if number is correct
+                if(numberString == "" || allowX == true) goto terminate;
                 *windowHeight = std::stoi(numberString);
                 ++whichChoice;
             }
@@ -226,6 +234,8 @@ bool readFromFile( unsigned int* algorithm,
                         numberString.push_back(c);
                     }
                 }
+                // Check if number is correct
+                if (numberString == "") goto terminate;
                 *numberOfElements = std::stoi(numberString);
                 ++whichChoice;
             }
@@ -239,6 +249,8 @@ bool readFromFile( unsigned int* algorithm,
                         numberString.push_back(c);
                     }
                 }
+                // Check if number is correct
+                if(numberString == "") goto terminate;
                 *delayTime = std::stoi(numberString);
                 ++whichChoice;
             }
@@ -255,11 +267,24 @@ bool readFromFile( unsigned int* algorithm,
                         *typeOfVisualization = 'D';
                     
                 }
+                // Check if type of visualization is correct
+                if(*typeOfVisualization == ' ') goto terminate;
                 ++whichChoice;
             }
             numberString = "";
         }
-        return true;
+        // Check whether all settings have been entered
+        if (whichChoice == 5)
+        {
+            initDataFile.close();
+            return true;
+        }
+        else goto terminate;
     }
-    else return false;
+    else
+    {
+        terminate:
+        initDataFile.close();
+        return false;
+    }
 }
