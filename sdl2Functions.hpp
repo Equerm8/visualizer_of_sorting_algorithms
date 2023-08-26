@@ -4,6 +4,7 @@
 // Draw states of current state of vector
 //
 // Visualization for state when all elements are sorted
+
 void drawFinalState(
     std::vector<int>& vector, 
     SDL_Renderer* renderer,

@@ -39,4 +39,4 @@ Theres two type of visualization. Lines and dots. Choose one.
 If you want lines: L
 If you want dots: D
 
-Choice: L
+Choice: D

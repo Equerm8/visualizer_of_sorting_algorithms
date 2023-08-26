@@ -1,5 +1,4 @@
-// INCLUDES
-//
+// All necessary includes
 #include <random>
 #include <vector>
 #include <time.h>
@@ -8,22 +7,37 @@
 #include <fstream>
 #include <string.h>
 
+// Local header files
 #include "sortAlgorithms.hpp"
 #include "sdl2Functions.hpp"
-// SINGLE FUNCTIONS
-//
+
+/*
+    ### Read the file and update the variables used for visualization.
+    ---
+    #### Input:
+    - algorithm - an integer that indicates which algorithm will be visualized,
+    - numberOfElements - integer, which indicates the number of elements 
+    that will be visualized,
+    - windowWidth - width of the window that will show up when the program
+    starts up,
+    - delayTime - time between each iteration of the algorithm execution,
+    - typeOfVisualization - the type of visualization that will be presented.
+    ---
+    #### Output:
+    - true if the file was read correctly,
+    - false if the file was not read correctly.
+*/
 bool readFromFile(unsigned int* algorithm,
     unsigned int* numberOfElements,
     unsigned int* windowWidth,
-    unsigned int* WindowHeight,
+    unsigned int* windowHeight,
     unsigned int* delayTime,
     char* typeOfVisualization);
 
-// MAIN
-//
+// Main
 int main(int argc, char *argv[])
 {
-    // Variables that are loaded from init_data.txt
+    // Variables that are loaded from settings.txt
     unsigned int algorithm;
     unsigned int numberOfElements;
     unsigned int windowWidth;
@@ -31,9 +45,9 @@ int main(int argc, char *argv[])
     unsigned int delayTime;
     char typeOfVisualization = ' ';
 
-    if(readFromFile(
-        &algorithm, &numberOfElements, &windowWidth, 
-        &windowHeight, &delayTime, &typeOfVisualization))
+    // Trying to read data from file
+    if(readFromFile(&algorithm, &numberOfElements, &windowWidth, 
+                    &windowHeight, &delayTime, &typeOfVisualization))
     {
         // Delcarating vector which will be populated with random numbers
         std::vector<int> vectorToSort;
@@ -41,20 +55,22 @@ int main(int argc, char *argv[])
         // Populating vector
         srand(time(0));
         for (int i = 0; i < numberOfElements; i++)
+        {
             vectorToSort.push_back(10 + (rand() % windowHeight - 10));
-        
-        
+        }
+
         // Setup window
         SDL_Init(SDL_INIT_VIDEO);
-        SDL_Window* window = nullptr; // Identify window pointer
+        SDL_Window* window = nullptr;     // Identify window pointer
         SDL_Renderer* renderer = nullptr; // Identify render pointer
-        SDL_CreateWindowAndRenderer(windowWidth, windowHeight, 0, 
-                                    &window, &renderer);
+        SDL_CreateWindowAndRenderer(windowWidth, windowHeight, 
+                                    0, &window, &renderer);
         SDL_RenderSetScale(renderer, 1, 1);
 
-        // Sort
+        // Choose proper algorithm to sort data
         switch (algorithm)
         {
+            // Bubble sort has been chosen
             case 1:
                 bubbleSort(
                     vectorToSort, renderer, 
@@ -62,6 +78,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;
 
+            // Bucket sort has been chosen
             case 2:
                 bucketSort(
                     vectorToSort, renderer, 
@@ -69,6 +86,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;
 
+            // Counting sort has been chosen
             case 3:
                 countingSort(
                     vectorToSort, renderer, 
@@ -76,6 +94,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;
 
+            // Gnome sort has been chosen
             case 4:
                 gnomeSort(
                     vectorToSort, renderer, 
@@ -83,6 +102,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;
             
+            // Heap sort has been chosen
             case 5:
                 heapSort(
                     vectorToSort, renderer, 
@@ -90,6 +110,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;
 
+            // Insertion sort has been chosen
             case 6:
                 insertionSort(
                     vectorToSort, renderer, 
@@ -97,6 +118,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;
 
+            // Merge sort has been chosen
             case 7:
                 mergeSort(
                     vectorToSort, 0, vectorToSort.size()-1, 
@@ -104,6 +126,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;  
 
+            // Quick sort has been chosen
             case 8:
                 quickSort(
                     vectorToSort, 0, vectorToSort.size() - 1,
@@ -111,6 +134,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;
 
+            // Radix sort has been chosen
             case 9:
                 radixSort(
                     vectorToSort, renderer, 
@@ -118,6 +142,7 @@ int main(int argc, char *argv[])
                     delayTime, typeOfVisualization);
                 break;
 
+            // Selection sort has been chosen
             case 10:
                 selectionSort(
                     vectorToSort, renderer, 
@@ -143,6 +168,7 @@ int main(int argc, char *argv[])
         SDL_DestroyRenderer(renderer);
         return EXIT_SUCCESS;
     }
+    // The program will display a message that there was a problem with the settings.txt file
     else
     {
         SDL_ShowSimpleMessageBox(
@@ -164,19 +190,21 @@ bool readFromFile( unsigned int* algorithm,
 {
     // Initialization of the file
     std::fstream initDataFile;
+
     // Opening file
     initDataFile.open("settings.txt", std::ios::in);
+
     // Trying to read data from file
     if(initDataFile.is_open())
     {
-        // Line - current line of txt file
-        // Which choice - which line of choice:
-        //  0 - algorithm
-        //  1 - resolution
-        //  etc...
-        // numberString - number entered by the user after "choice" 
+
+        // Current line of txt file
         std::string line;
+
+        // Which line of choice. 0 - algorithm, 1 - resolution etc.
         unsigned int whichChoice = 0;
+
+        // Number entered by the user after "choice" 
         std::string numberString = "";
 
         // Reading file
@@ -283,6 +311,7 @@ bool readFromFile( unsigned int* algorithm,
         }
         else goto terminate;
     }
+    // settings.txt could not be opened
     else
     {
         terminate:

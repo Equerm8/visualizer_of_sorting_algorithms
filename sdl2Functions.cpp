@@ -1,8 +1,10 @@
+// All necessary includes
 #include <vector>
 #include <SDl2/SDL.h>
 
+// Local header files
 #include "sdl2Functions.hpp"
-//
+
 // Visualization for state when all elements are sorted
 void drawFinalState(
     std::vector<int>& vector, 
@@ -54,6 +56,7 @@ void drawFinalState(
     SDL_Delay(speed);
 }
 
+// Visualization of bubble sort
 void drawBubbleSortState(
     std::vector<int>& vector, 
     SDL_Renderer* renderer,
@@ -110,6 +113,7 @@ void drawBubbleSortState(
     SDL_Delay(speed);
 }
 
+// Visualization of bucket sort
 void drawBucketSortState(
     std::vector<int>& vector, 
     SDL_Renderer* renderer,
@@ -166,6 +170,11 @@ void drawBucketSortState(
     SDL_Delay(speed);
 }
 
+/* 
+    Visualization of insertion sort is suitable for everything so it is used
+    to visualize: insertion sort, bucket sort, gnome sort, heap sort,
+    merge sort, quick sort and radix sort.
+*/ 
 void drawInsertionSortState(
     std::vector<int>& vector, 
     SDL_Renderer* renderer,
@@ -220,6 +229,7 @@ void drawInsertionSortState(
     SDL_Delay(speed);
 }
 
+// Visualization of counting sort
 void drawCountingSortState(
     std::vector<int>& vector, 
     SDL_Renderer* renderer,
@@ -274,6 +284,7 @@ void drawCountingSortState(
     SDL_Delay(speed);
 }
 
+// Visualization of selection sort
 void drawSelectionSortState(
     std::vector<int>& vector, 
     SDL_Renderer* renderer,

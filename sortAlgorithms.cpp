@@ -187,8 +187,8 @@ void gnomeSort(
     }
 }
 
-//
-// HEAP SORT
+// Heap sort
+// 
 void heapify(
     std::vector<int>& vector, int n, int i,
     SDL_Renderer* renderer,
@@ -249,10 +249,10 @@ void heapSort(
             speed, typeOfVisualization);
     }
 }
-// END OF HEAP SORT
-//
+// 
+// End of heap sort
 
-// MERGE SORT
+// Merge sort
 //
 void merge(
     std::vector<int>& vector, int l, int m, int r,
@@ -334,8 +334,8 @@ void mergeSort(
             speed, typeOfVisualization);
     }
 }
-// END OF MERGE SORT
-//
+// 
+// End of merge sort
 
 void quickSort(
     std::vector<int>& vector, int l, int r,
@@ -377,8 +377,8 @@ void quickSort(
         speed, typeOfVisualization);
 }
 
-//
-// RADIX SORT + CUSTOM COUNTING SORT
+// Radix sort + custom counting sort
+// 
 void countingSort(
     std::vector<int>& vector, int exp,
     SDL_Renderer* renderer,
@@ -447,7 +447,7 @@ void radixSort(std::vector<int>& vector,
     }
 }
 //
-// END OF RADIX SORT
+// End of radix sort
 
 void selectionSort(std::vector<int>& vector,
     SDL_Renderer* renderer,

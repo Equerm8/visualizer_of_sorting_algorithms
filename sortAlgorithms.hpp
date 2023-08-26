@@ -91,14 +91,16 @@ void countingSort(
 
 int getMaxValue(std::vector<int>& vector);
 
-void radixSort(std::vector<int>& vector,
+void radixSort(
+    std::vector<int>& vector,
     SDL_Renderer* renderer,
     unsigned int windowWidth,
     unsigned int windowHeight,
     unsigned int speed,
     char typeOfVisualization);
 
-void selectionSort(std::vector<int>& vector,
+void selectionSort(
+    std::vector<int>& vector,
     SDL_Renderer* renderer,
     unsigned int windowWidth,
     unsigned int windowHeight,
